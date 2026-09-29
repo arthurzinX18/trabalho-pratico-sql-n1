@@ -45,13 +45,13 @@ BEGIN
         SELECT c.name AS categoria, i.store_id AS loja, r.rental_id, p.amount 
 	FROM rental r
         JOIN payment p
-		ON p.rental_id = r.rental_id
+			ON p.rental_id = r.rental_id
         JOIN inventory i
-		ON i.inventory_id = r.inventory_id
+			ON i.inventory_id = r.inventory_id
         JOIN film_category fc
-		ON fc.film_id = i.film_id
+			ON fc.film_id = i.film_id
         JOIN category c
-		ON c.category_id = fc.category_id
+			ON c.category_id = fc.category_id
 
         WHERE r.rental_date >= p_data_inicio
           AND r.rental_date < DATE_ADD(p_data_fim, INTERVAL 1 DAY)
