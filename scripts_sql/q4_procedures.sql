@@ -71,3 +71,16 @@ BEGIN
 END$$
 
 DELIMITER ;
+
+
+-- Calls que passam
+
+CALL sp_relatorio_receita_categoria('2005-07-01', '2005-07-31', NULL, NULL);
+
+CALL sp_relatorio_receita_categoria(NULL, NULL, 'Action', 1);
+
+-- Calls de validação COM ERRO
+
+CALL sp_relatorio_receita_categoria('2005-08-01', '2005-07-01', NULL, NULL);
+
+CALL sp_relatorio_receita_categoria(NULL, NULL, 'Inexistente', NULL);
